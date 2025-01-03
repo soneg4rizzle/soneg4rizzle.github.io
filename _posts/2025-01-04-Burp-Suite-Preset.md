@@ -5,7 +5,7 @@ tags: [Web Hacking, Web Proxy, MITM]
 image:
   path: /assets/post/2025/Tools/Burp Suite/thumb.jpg
   alt: Burp Suite Professional
-published: true
+published: false
 ---
 
 # Burp Suite TIPS
