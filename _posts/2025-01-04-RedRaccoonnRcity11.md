@@ -1,0 +1,120 @@
+---
+title: RCity11 Write-Up
+categories: [Playground, Red Raccoon]
+tags: [Penetration, CTF, Write Up]
+image:
+  path: /assets/post/2025/Playground/Red Raccoon/redraccoon.png
+  alt: Red Raccoon (https://www.redraccoon.kr/)
+published: true
+---
+
+## **1. How to Crack SSH Private Key Passwords with John the Ripper**
+
+SSH(Secure Shell)는 암호화된 연결을 통해 원격 컴퓨터(호스트)를 관리하는데 사용되는 네트워크 프로토콜 중 하나인데요. 암호화 통신이기에 안전하다고 생각할 수 있지만 무차별 공격(Brute-Forcing Attack)을 통해 SSH Private Key 암호 해독이 가능할 수 있기 때문에 최악의 경우에는 원격 접속 시 사용되는 패스워드(암호문)가 노출되어 공격자가 호스트에 접근 후 악의적인 행위를 할 수 있게 됩니다.
+
+RCity10 문제는 공격자가 JTR(John The Ripper) 도구로 SSH Private Key의 암호문(passphrase)을 탈취하여
+
+타켓 호스트(rcity12)로 침투하여 플래그를 확인하는 문제입니다.
+
+SSH는 패스워드를 기반으로 하여 원격 호스트에 접속할 수 있는 기능을 제공해주는데,
+
+이때 존더리퍼가 원격 호스트 연결 시 사용되는 패스워드(암호문) 탈취를 위해 사용됩니다.
+
+존더리퍼를 통해 패스워드 크래킹을 하기 위해서는 아래의 정보가 요구됩니다.
+
+> 1\. 탈취하려는 타겟(Target) 호스트의 Private Key  
+> 2\. Private Key의 암호문 해독을 위한 Word lists  
+> 3\. 해시(hash) 형태로 변환된 Private Key
+
+거두절미하고 실습 진행해보도록 하겠습니다.
+
+## **2. Exploit**
+
+### **2-1. rcity11 폴더 파일 확인**
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXzLCp%2FbtsLodMOQYx%2F9a2AaJjpnsk1WAptnKnHT1%2Fimg.png" width=1300>
+
+rcity11 호스트에 접속하여 /home/rcity11 경로의 파일을 출력해보면 2개의 파일을 확인할 수 있는데요.
+
+어떤 파일인지 내용을 살펴보겠습니다.
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fk0Sqt%2FbtsLn5uvqSN%2F5hohgeaqkOt3hcOgaK6IM1%2Fimg.png" width=1300>
+
+오. rcity12 호스트의 개인키(Private Key) 정보와 rcity12 호스트의 패스워드 크래킹을 위한 워드리스트군요!
+
+그럼 이 파일을 /tmp/jtr 경로로 이동하여 이름을 변경해준 후 다시 진행해 보도록 하겠습니다.
+(사진에는 담기지 않았지만 워드리스트 파일도 옮겨주었습니다.)
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb4z5X2%2FbtsLph11cYs%2FC3OKkdZpzLgx2SomA76kB1%2Fimg.png" width=1300>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FkTiOo%2FbtsLnOT3KCa%2FV2lJszaKcsMbLp4ZU69in1%2Fimg.png" width=1300>
+
+rcity12에 SSH 원격 접속하기 위해서는 비밀번호가 필요한데요.
+rcity11에서 제공된 SSH Private Key와 Wordlists를 활용해서 패스워드를 한번 구해보도록 하겠습니다.
+여기서 사용되는 도구는 패스워드 크래킹 도구로 유명한 JTR(John the Ripper) 입니다.
+
+### **2-2. JTR(John the Ripper) 다운로드**
+
+```
+#wget https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/ssh2john.py
+```
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FuHRha%2FbtsLoh2wAqU%2FDLeLyreyxnwAuqaxXU08w0%2Fimg.png" width=1300>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbLNn4S%2FbtsLn0NJqT6%2F2ijAt5AMkyw38DTOt3Bvi1%2Fimg.png" width=1300>
+
+파이썬 코드를 통해 실행하려고 하였으나, 현재 호스트에는 파이썬 환경이 설치되지 않은 것 같습니다..허헣
+
+루트 권한이 없어서 파이썬을 설치할 수도 없으니 그냥 제 칼리로 파일을 가져와서 다시 진행하겠습니다.
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FHeFAT%2FbtsLobIeUvC%2F3uuNgUIfxsKgK9Gn7jAkAK%2Fimg.png" width=1300>
+
+---
+
+### **2-3. Convert Private Key to Hash**
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcKC9F0%2FbtsLoMBdFTy%2FxmEmW20W6oG6zncFPkQup0%2Fimg.png" width=1300>
+
+ssh2john.py 파일은 패스워드 크래킹을 위해 Private Key 파일을 존더리퍼가 해석할 수 있는 해시 형태로 변환하는 파이썬 스크립트입니다. 위 과정을 거쳐 개인키 형식을 변경해주어야 정상적으로 패스워드 크래킹 수행이 가능합니다.
+
+---
+
+### **2-4. Password Crakcing with wordlists**
+
+(2-1.) 과정에서의 워드리스트 파일을 살펴보면 , 를 기준으로 단어들이 정렬되어 있는 것을 확인할 수 있는데요. 존더리퍼에서는 \\n 값을 기준으로 값을 가져와 패스워드 크래킹을 진행합니다.
+
+따라서, 정상적으로 wordlists.txt 파일의 값을 불러와 사용하기 위해서는 저장된 값을 변경하는 작업이 필요합니다. 이는 "tr" 명령어를 사용하여 간단하게 해결할 수 있습니다.
+
+```
+cat wordlist.txt | tr ',' '\n' > new_wordlists.txt
+```
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FzIawz%2FbtsLmRcWq2X%2FhsiKURBXH1dDDuoS8Bjr71%2Fimg.png" width=1300>
+
+---
+
+자, 이제 모든 준비가 끝났으니 다시 패스워드 크래킹을 해봅시다.
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FM7WSw%2FbtsLmJTMpbk%2F6nfVftFspoFXdBGq74GGT0%2Fimg.png" width=1300>
+
+오우! 워드리스트 파일에서 개인키와 매칭되는 패스워드 탐색에 성공했습니다.
+그럼 이 비밀번호를 사용해서 rcity12 호스트로 접속해보겠습니다.
+(크래킹은 1번 진행하면 다시 수행할 수 없으므로, 탈취한 패스워드를 확인하려면
+
+```
+# john --show [rcity12_sshkey.hash]  명령어를 통해 확인하실 수 있습니다.
+```
+
+### **2-5. SSH Connect to rcity12@ctf.redraccoon.kr**
+
+```
+# ssh -i rcity12\_sshkey rcity12@ctf.redraccoon.kr -p 31338
+# ls
+# cat rcity11-flag-for-ctfd.txt
+```
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FJd0TN%2FbtsLn9ReSKv%2FV1PLEqgfpeiPNfAQLVOeK0%2Fimg.png" width=1300>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbm9Psl%2FbtsLmpHZStt%2Fj02Ni6v0jImzTfsxp0px1k%2Fimg.png" width=1300>
+
+탈취한 암호문(passphrase)을 입력하여 rcity12@ctf.redracoon.kr 로 접속하면 플래그 확인이 가능합니다.
+
+SSH(Secure Shell)의 동작 원리와 .ssh/authorized_keys , .ssh/known_hosts 등의 내용은 추후에 SSH 게시글을 통해 더 자세히 다루도록 하겠습니다.
+
+---
+
+<h2 style="text-align: center;" data-ke-size="size26"><b>END</b></h2>

@@ -8,7 +8,7 @@ image:
 published: true
 ---
 
-# Burp Suite TIPS
+# Burp Suite Tips
 
 ---
 
