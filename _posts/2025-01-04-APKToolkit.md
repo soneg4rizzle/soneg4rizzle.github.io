@@ -14,7 +14,7 @@ published: true
 
 기본적인 구조는 아래 이미지와 같습니다.
 
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdqkE6C%2FbtsLCIkVFie%2FgIfsx69IWY7LdBZiq5zTC0%2Fimg.png" width=1300>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdqkE6C%2FbtsLCIkVFie%2FgIfsx69IWY7LdBZiq5zTC0%2Fimg.png" alt="" width=1300>
 
 사용법은 간단합니다.
 우측의 파일 혹은 폴더 이미지를 클릭하신 후 원하는 APK 파일을 선택하시면 되는데요.
