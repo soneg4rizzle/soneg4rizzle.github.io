@@ -36,14 +36,14 @@ WinSCP는 SSH(Secure Shell)를 통한 암호화 통신으로 리눅스 서버와
 
 먼저, SSHDroid APP을 실행하신 뒤에 상단의 "START" 버튼을 눌러주세요.
 
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FWfxqX%2FbtsLaJyXhtn%2FHFoQvhAxMRiaF86OxkKs91%2Fimg.png" width=1300>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FWfxqX%2FbtsLaJyXhtn%2FHFoQvhAxMRiaF86OxkKs91%2Fimg.png" alt="" width=1300>
 
 SSHDroid 애플리케이션을 확인해 보면 SSH 접속이 가능한 [사용자 계정]@[원격지 IP] 활성화 되었습니다.
 추가로 안드로이드 단말에서 # netstat -antp 명령어를 통해 SFTP(22) 포트 활성화된 것을 확인 가능합니다.
 
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc9EidS%2FbtsLay5weTW%2F2tdgMwnaRzZTRPCOiA22IK%2Fimg.png" width=1300>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc9EidS%2FbtsLay5weTW%2F2tdgMwnaRzZTRPCOiA22IK%2Fimg.png" alt="" width=1300>
 
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F8y1Ho%2FbtsLbwZWCMK%2FuPqVQCQaSKG3btQkwTg410%2Fimg.png" width=1300>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F8y1Ho%2FbtsLbwZWCMK%2FuPqVQCQaSKG3btQkwTg410%2Fimg.png" alt="" width=1300>
 
 ### 2-2. WinSCP - Connect to SSH Server
 
@@ -53,10 +53,10 @@ WinSCP를 실행시킨 후 활성화된 SFTP 서버로 접속을 시도합니다
 # [사용자 계정]@[원격지 호스트 IP]
 # SSHDroid는 사용자/패스워드 초기 설정 값으로 (root/admin) 을 사용합니다.
 ```
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbasAiO%2FbtsLaK5I94u%2FEP1f9uySVdnOIVit3fMl7k%2Fimg.png" width=1300>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbasAiO%2FbtsLaK5I94u%2FEP1f9uySVdnOIVit3fMl7k%2Fimg.png" alt="" width=1300>
 
 ### 2-3. WinSCP - Connection is Completed
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fenjqyq%2FbtsK9YDEh4p%2FEjZ9YA5EtgQWXKrxkCTfV1%2Fimg.png" width=1300>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fenjqyq%2FbtsK9YDEh4p%2FEjZ9YA5EtgQWXKrxkCTfV1%2Fimg.png" alt="" width=1300>
 
 정상적으로 SFTP 서버에 연결되었으며, 윈도우즈와 리눅스 운영체제 간 파일 공유가 가능합니다.
 /data/data/{application_package}/shared_prefs 경로의 파일을 조회 · 수정 · 삭제하며 진단에 활용할 수 있습니다. 애플리케이션 이용 시 고정된 사용자 식별 값을 사용하고 있는 경우에 이 값을 다른 유저의 값으로 변조해서 권한 탈취 및 인증 우회와 같은 테스트를 해볼 수 있을 것 같습니다. 사용방법은 무궁무진 할 것 같네요.
