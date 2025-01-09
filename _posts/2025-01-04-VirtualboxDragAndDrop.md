@@ -43,4 +43,4 @@ published: true
 {: .prompt-info}
 ---
 
-<h2 style="text-align: center;" data-ke-size="size26"><b>END</b></h2>
+<h2 style="text-align: center;" data-ke-size="size26"><b>END</b></h2> 
