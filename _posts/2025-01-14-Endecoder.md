@@ -131,7 +131,7 @@ BASE64, URL, HEX, HTML, Unicode, UTF-7bit
 ---
 
 ## ASCII Table
-<img src="/assets/post/2025/Tools/Endecoder/ascii.png" alt="" width=1300>
+<img src="/assets/post/2025/Tools/Endecoder/ascii.png" alt="" width=333>
 
 ---
 
