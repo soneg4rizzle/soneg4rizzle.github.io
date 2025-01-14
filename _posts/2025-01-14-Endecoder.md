@@ -12,7 +12,6 @@ published: true
 BASE64, URL, HEX, HTML, Unicode, UTF-7bit
 
 <h3>Encoder</h3>
-<body>
 <div><textarea id="inputText" placeholder="Enter your plain-text here." style="width: 100%"></textarea></div>
 <div style="text-align: center;"><button onclick="encodeBase64()">BASE64</button>　　　<button onclick="encodeHEX()">HEX</button>　　　<button onclick="encodeHTML()">HTML</button>　　　<button onclick="encodeUTF7()">UTF-7</button>　　　<button onclick="encodeURL()">URL</button>　　　<button onclick="encodeUnicode()">Unicode</button></div>
 
@@ -124,7 +123,6 @@ BASE64, URL, HEX, HTML, Unicode, UTF-7bit
         document.getElementById('inputText').value = decoded;
     }
 </script>
-</body>
 
 <br>
 
