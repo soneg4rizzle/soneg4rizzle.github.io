@@ -20,14 +20,12 @@ BASE64, URL, HEX, HTML, Unicode, UTF-7bit
 <div style="text-align: center;"><button onclick="decodeBase64()">BASE64</button>　　　<button onclick="decodeHEX()">HEX</button>　　　<button onclick="decodeHTML()">HTML</button>　　　<button onclick="decodeUTF7()">UTF-7</button>　　　<button onclick="decodeURL()">URL</button>　　　<button onclick="decodeUnicode()">Unicode</button></div>
 
 <script>
-    // Base64 인코딩
     function encodeBase64() {
         const input = document.getElementById('inputText').value;
         const encoded = btoa(input);
         document.getElementById('outputText').value = encoded;
     }
 
-    // Base64 디코딩
     function decodeBase64() {
         const input = document.getElementById('outputText').value;
         try {
@@ -38,7 +36,6 @@ BASE64, URL, HEX, HTML, Unicode, UTF-7bit
         }
     }
 
-    // HEX 인코딩
     function encodeHEX() {
         const input = document.getElementById('inputText').value;
         let encoded = '';
@@ -48,7 +45,6 @@ BASE64, URL, HEX, HTML, Unicode, UTF-7bit
         document.getElementById('outputText').value = encoded;
     }
 
-    // HEX 디코딩
     function decodeHEX() {
         const input = document.getElementById('outputText').value;
         const regex = /\&#x([0-9a-fA-F]+)/g;
@@ -56,7 +52,6 @@ BASE64, URL, HEX, HTML, Unicode, UTF-7bit
         document.getElementById('inputText').value = decoded;
     }
 
-    // HTML 인코딩
     function encodeHTML() {
         const input = document.getElementById('inputText').value;
         let encoded = '';
@@ -66,7 +61,6 @@ BASE64, URL, HEX, HTML, Unicode, UTF-7bit
         document.getElementById('outputText').value = encoded;
     }
 
-    // HTML 디코딩
     function decodeHTML() {
         const input = document.getElementById('outputText').value;
         const regex = /\&#x([0-9a-fA-F]+);/g;
@@ -77,7 +71,6 @@ BASE64, URL, HEX, HTML, Unicode, UTF-7bit
         document.getElementById('inputText').value = decoded;
     }
     
-    // UTF7 인코딩
     function encodeUTF7() {
         const input = document.getElementById('inputText').value;
         let encoded = '';
@@ -87,7 +80,6 @@ BASE64, URL, HEX, HTML, Unicode, UTF-7bit
         document.getElementById('outputText').value = encoded;
     }
 
-    // UTF7 디코딩
     function decodeUTF7() {
         const input = document.getElementById('outputText').value;
         const regex = /\&#x([0-9a-fA-F]+);/g;
@@ -95,28 +87,24 @@ BASE64, URL, HEX, HTML, Unicode, UTF-7bit
         document.getElementById('inputText').value = decoded;
     }
     
-    // URL 인코딩
     function encodeURL() {
         const input = document.getElementById('inputText').value;
         const encoded = encodeURIComponent(input).replace(/'/g,"%27").replace(/"/g,"%22");;
         document.getElementById('outputText').value = encoded;
     }
     
-    // URL 디코딩
     function decodeURL() {
         const input = document.getElementById('outputText').value;
         const decoded = decodeURIComponent(input);
         document.getElementById('inputText').value = decoded;
     }
 
-    // Unicode 인코딩
     function encodeUnicode() {
         const input = document.getElementById('inputText').value;
         const encoded = Array.from(input).map(char => '\\u' + ('0000' + char.charCodeAt(0).toString(16)).slice(-4)).join('');
         document.getElementById('outputText').value = encoded;
     }
 
-    // Unicode 디코딩
     function decodeUnicode() {
         const input = document.getElementById('outputText').value;
         const decoded = input.replace(/\\u([a-fA-F0-9]{4})/g, (match, grp) => String.fromCharCode(parseInt(grp, 16)));
