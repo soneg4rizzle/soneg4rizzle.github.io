@@ -17,4 +17,7 @@ published: true
 3. https://book.hacktricks.xyz/pentesting-web/web-vulnerabilities-methodology
 4. https://cheatsheetseries.owasp.org/index.html
 
+### System Security Vulnerability Guide
+1. https://ssv.skill.or.kr/security/undefined
+
 ---
