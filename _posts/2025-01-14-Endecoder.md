@@ -9,7 +9,7 @@ published: true
 ---
 
 ## Endecoder
-BASE64, URL, HEX, HTML, Unicode, UTF-7bit
+(BASE64, URL, HEX, HTML, Unicode, UTF-7bit)<br>
 웹·모바일 애플리케이션 취약점 진단 시 필터링 우회를 위한 인코더·디코더입니다.
 
 <h3>Encoder</h3>
