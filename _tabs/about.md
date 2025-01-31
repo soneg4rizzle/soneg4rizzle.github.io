@@ -15,7 +15,7 @@ order: 4
 ### Tech Stack
 > 'Web·Mobile Application Vulnerability Assessment  
 > 'Penetration Testing  
-> 'Utilizing source code analysis tools (DAST; Fortify)  
+> 'Utilizing source code analysis tools (SAST; Fortify)  
 > 'Programming : JAVA, Python, JS
 
 <hr>
