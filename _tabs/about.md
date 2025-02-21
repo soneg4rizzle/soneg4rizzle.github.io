@@ -13,10 +13,10 @@ order: 4
 <hr>
 
 ### Tech Stack
-> 'Web·Mobile Application Vulnerability Assessment  
-> 'Penetration Testing  
+> '(Appsec) Web·Mobile Application Vulnerability Assessment  
+> '(Offsec) Penetration Testing  
 > 'Utilizing source code analysis tools (SAST; Fortify)  
-> 'Programming : JAVA, Python, JS
+> 'Programming : JAVA, Python
 
 <hr>
 
