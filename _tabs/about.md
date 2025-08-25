@@ -15,16 +15,17 @@ order: 4
 ### Tech Stack
 > '(Appsec) Web·Mobile Application Vulnerability Assessment  
 > '(Offsec) Penetration Testing  
-> 'Utilizing source code analysis tools (SAST; Fortify)  
+> 'Utilizing source code analysis tools (SAST; Fortify / DAST; Appscan)  
 > 'Programming : Python, Java
 
 <hr>
 
 ### Certification
+> '2025.08.22. OSCP (Offensive Security Certified Professional)  
 > '2024.12.24. 정보보안기사  
-> '2024.09.11. CPPG(Certified Privacy Protection General)  
+> '2024.09.11. CPPG (Certified Privacy Protection General)  
 > '2023.11.15. 정보처리기사  
-> '2023.07.07. SQLD(SQL Developer)  
+> '2023.07.07. SQLD (SQL Developer)  
 
 <hr>
 
