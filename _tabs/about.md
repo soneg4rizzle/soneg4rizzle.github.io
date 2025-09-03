@@ -29,7 +29,7 @@ order: 4
 
 <hr>
 
-### TEAM
+### Team
 
 > '2025-09-03 ~ SaturnX Operators
 
