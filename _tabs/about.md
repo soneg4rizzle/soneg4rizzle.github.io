@@ -22,6 +22,7 @@ order: 4
 
 ### Certification
 > '2025.08.22 OSCP (Offensive Security Certified Professional)  
+> '2025.03.01 BHPT (Basic Host-based Penetration Testing)  
 > '2024.12.24 정보보안기사  
 > '2024.09.11 CPPG (Certified Privacy Protection General)  
 > '2023.11.15 정보처리기사  
