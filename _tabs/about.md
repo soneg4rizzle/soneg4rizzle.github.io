@@ -16,7 +16,7 @@ order: 4
 > '(Appsec) Web·Mobile Application Vulnerability Assessment  
 > '(Offsec) Penetration Testing  
 > 'Utilizing source code analysis tools (SAST; Fortify / DAST; Appscan)  
-> 'Programming : Python, Java
+> 'Programming Language : Python, Java
 
 <hr>
 
